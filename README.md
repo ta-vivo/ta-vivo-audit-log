@@ -1,6 +1,6 @@
 # Ta-vivo audit log
 
-This is a service to save log history of Ta-vivo APP.
+This is a service to save log history like check update, integration test request and much more of Ta-vivo APP write in Golang.
 
 ## Get started
 
