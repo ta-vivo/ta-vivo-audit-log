@@ -21,7 +21,7 @@ func main() {
 		log.Fatal("Error loading API_PORT")
 	}
 
-	server := NewServer("localhost:" + strconv.Itoa(port))
+	server := NewServer("0.0.0.0:" + strconv.Itoa(port))
 	fmt.Println("The server is running in por: ", port)
 
 	// Routers
