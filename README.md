@@ -16,9 +16,17 @@ Run
 go run ./src/
 ``` 
 
+## Docker
+
+This service work with docker.
+
+```bash
+docker-compose up
+```
+
 ## Example of JWT creation
 
-The service work with JWT, you can generate a JWT token with the following command:
+The service work with JWT, you can generate a JWT token with the following command using nodejs;
 
 ```bash
 const jwt = require('jsonwebtoken');
