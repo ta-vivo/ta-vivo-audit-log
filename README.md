@@ -7,6 +7,7 @@ This is a service to save log history like check updates, integration test reque
 Install packages
 ```
 go get
+go install
 ```
 
 Run 
