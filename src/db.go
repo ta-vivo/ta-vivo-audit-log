@@ -20,7 +20,7 @@ func getDbConnection() *gorm.DB {
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		panic("failed to connect database")
+		fmt.Printf("failed to connect database")
 	}
 
 	db.AutoMigrate(&Log{})
