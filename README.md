@@ -41,3 +41,18 @@ const token = jwt.sign(
 
 console.log(token);
 ```
+
+## Use
+
+The unique enpoint is `/logs`, you can use the following methods:
+
+POST
+```json
+{
+    "userId": 1,
+    "action": "update",
+    "metaData": {
+        "property": "value"
+    }
+}
+```
