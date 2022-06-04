@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  app:
+  ta-vivo-audit-log:
     container_name: ta-vivo-audit-log
     build: .
     ports:
