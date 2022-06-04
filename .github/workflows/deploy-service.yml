@@ -1,0 +1,28 @@
+name: deploy-service
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  deploy-service:
+    # Name the Job
+    name: Deploy Ta-vivo Audit service
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Connect to server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd /var/www/services/ta-vivo-audit-log
+            git pull
+            docker-compose -f docker-compose-pro.yml up -d --build
