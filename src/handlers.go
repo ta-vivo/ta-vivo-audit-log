@@ -27,8 +27,7 @@ func HandleLog(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	db := getDbConnection()
-	result := db.Create(&Log{UserId: log.UserId, MetaData: log.MetaData, Action: log.Action})
+	result := DB.Create(&Log{UserId: log.UserId, MetaData: log.MetaData, Action: log.Action})
 
 	if result.Error != nil {
 		panic(result.Error)
