@@ -10,10 +10,13 @@ import (
 	"gorm.io/gorm"
 )
 
-func getDbConnection() *gorm.DB {
+var DB *gorm.DB
+
+func InitDBConnection() error {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
+		return err
 	}
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC", os.Getenv("DB_HOST"), os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_NAME"), os.Getenv("DB_PORT"))
@@ -21,8 +24,10 @@ func getDbConnection() *gorm.DB {
 
 	if err != nil {
 		fmt.Printf("failed to connect database")
+		return err
 	}
 
-	db.AutoMigrate(&Log{})
-	return db
+	DB = db
+	DB.AutoMigrate(&Log{})
+	return nil
 }
